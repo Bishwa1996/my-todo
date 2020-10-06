@@ -17,6 +17,16 @@ const App = () => {
     setItems("");
   };
 
+  const deleteItem = (id) =>{
+    id.preventDefault();
+    console.log("deleted");
+    setAdd((oldItems) => {
+        return oldItems.filter((arrElem,index)=>{
+    return index !== id;
+    });
+ });
+};
+
   return (
     <div>
       <h1>
@@ -29,11 +39,15 @@ const App = () => {
           value={items}
           onChange={handleInput}
         />
-        <button onClick={addItem}>Submit</button>
+        <button onClick={addItem}> + </button>
         <ol>
           {
-            add.map((itemVal) => {
-              return <List/>
+            add.map((itemVal, index) => {
+              return <List
+              key={index}
+              text={itemVal}
+              onSelect={deleteItem}
+              />;
             })
           }
         </ol>
