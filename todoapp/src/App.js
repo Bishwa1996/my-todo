@@ -18,7 +18,6 @@ const App = () => {
   };
 
   const deleteItem = (id) =>{
-    id.preventDefault();
     console.log("deleted");
     setAdd((oldItems) => {
         return oldItems.filter((arrElem,index)=>{
@@ -45,6 +44,7 @@ const App = () => {
             add.map((itemVal, index) => {
               return <List
               key={index}
+              id={index}
               text={itemVal}
               onSelect={deleteItem}
               />;

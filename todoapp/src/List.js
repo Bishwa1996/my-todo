@@ -1,6 +1,7 @@
 import React from "react";
 
 const List = (props) => {
+    props.preventDefault();
     return (
     <div>
     <li>{props.text}</li>
